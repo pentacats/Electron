@@ -1,0 +1,138 @@
+<!--
+  ______ _           _                   
+ |  ____| |         | |                  
+ | |__  | | ___  ___| |_ _ __ ___  _ __  
+ |  __| | |/ _ \/ __| __| '__/ _ \| '_ \ 
+ | |____| |  __/ (__| |_| | | (_) | | | |
+ |______|_|\___|\___|\__|_|  \___/|_| |_|
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Electron</title>
+  <link href="electron-full.png" rel="icon" id="favicon"/>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
+  <script src="https://kit.fontawesome.com/e897e5d5dc.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  
+    <div id="main" class="window">
+      <h1>Electron</h1>
+      <p>A student's best friend!</p>
+    </div>
+
+    <div id="aboutblank" class="window">
+      <h2>about:blank launcher</h2><br>
+      <input id="urlInput" type="text" placeholder="Enter URL" autocomplete="off"/>
+      <button id="changeUrl" style="display: none;"><i class="fa-solid fa-pen"></i> Change</button>
+      <button id="launch"><i class="fa-solid fa-rocket"></i> Launch</button>
+    </div>
+    
+     <div id="browser">
+      <h1>Browser</h1>
+       <iframe id="frame" src="https://browser-1.parrotdev.repl.co/" style="border: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0" height="100%" width="100%"></iframe>
+    </div>
+
+     <div id="settings" class="window">
+      <h1>Settings</h1>
+       <br>
+      <input id="tabname" type="text" value="" placeholder="Tab Name" >
+       <button onclick="updateTabNames()"><i class="fa-solid fa-check"></i></button>
+    <br>
+    <input id="faviconInput" type="text" placeholder="Tab Icon URL" ><button onclick="updateFavicon()"><i class="fa-solid fa-check"></i></button>
+    </div>
+
+    <div id="download" class="window">
+      <h1>Download</h1>
+      <p>How to locally download Electron:</p>
+      <p>1. Click <a href="Electron.zip">here</a> to download the ZIP file</p>
+      <p>2. Right click the file once it's downloaded, and click Extract All or Unzip</p>
+      <p>3. Navigate to the folder it made called Electron, and double click the index.html file.</p><br>
+      <p>Done! Electron is now downloaded on your computer. If you want to open it again, just double click the index.html file again.</p>
+    </div>
+    
+  
+  <div id="navbar">
+    <a class="navlink" id="home"><i class="fa-solid fa-home"></i></a>
+    <a class="navlink" id="abLink"><i class="fa-solid fa-eye-slash"></i></a>
+    <a class="navlink selected" id="browserLink"><i class="fa-solid fa-globe"></i></a>
+    <a class="navlink" id="settingsLink"><i class="fa-solid fa-gear"></i></a>
+    <a class="navlink" id="downloadLink"><i class="fa-solid fa-download"></i></a>
+    
+    <div id="time">
+      <p id="time-text">11:03</p>
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    _.addClass("#home", "selected")
+    changePage("main")
+    
+    
+    var links = ["abLink", "browserLink", "settingsLink", "downloadLink"]
+
+    links.forEach(link => {
+      var e = document.getElementById(link)
+      _.removeClass(e, "selected")
+    })
+    _.on("#abLink", "click", function() {
+      changePage("aboutblank")
+      testSelected()
+      _.addClass("#abLink", "selected")
+    })
+
+    _.on("#browserLink", "click", function() {
+      testSelected()
+      _.addClass("#browserLink", "selected")
+      changePage("browser")
+    })
+
+    _.on("#settingsLink", "click", function() {
+      testSelected()
+      _.addClass("#settingsLink", "selected")
+      changePage("settings")
+    })
+
+    _.on("#home", "click", function() {
+      testSelected()
+      _.addClass("#home", "selected")
+      changePage("main")
+    })
+    
+    _.on("#downloadLink", "click", function() {
+      testSelected()
+      _.addClass("#downloadLink", "selected")
+      changePage("download")
+    })
+
+
+    function testSelected() {
+      var links = ["abLink", "browserLink", "settingsLink", "home", "downloadLink"]
+  
+      links.forEach(link => {
+        var e = document.getElementById(link)
+        _.removeClass(e, "selected")
+      })
+    }
+    function changePage(x) {
+      var pages = ["aboutblank", "browser", "settings", "main", "download"]
+      
+      pages.forEach(page => {
+        document.getElementById(page).style.display = "none"
+      })
+      
+      document.getElementById(x).style.display = "block"
+    }
+  </script>
+</body>
+
+</html>
