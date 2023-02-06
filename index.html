@@ -58,7 +58,7 @@
       <p>Done! Electron is now downloaded on your computer. If you want to open it again, just double click the index.html file again.</p>
     </div>
   
-    <div id="browser">
+    <div id="todo">
       <h1>Todolist</h1><i class="fa-light fa-check"></i>
        <iframe id="frame" src="https://browser-1.parrotdev.repl.co/" style="border: none; position: fixed; top: 0; bottom: 0; left: 0; right: 0" height="100%" width="100%"></iframe>
     </div>
@@ -83,7 +83,7 @@
     changePage("main")
     
     
-    var links = ["abLink", "browserLink", "settingsLink", "downloadLink"]
+    var links = ["abLink", "browserLink", "settingsLink", "downloadLink", "todolink"]
 
     links.forEach(link => {
       var e = document.getElementById(link)
@@ -118,10 +118,16 @@
       _.addClass("#downloadLink", "selected")
       changePage("download")
     })
+    
+     _.on("#todolink", "click", function() {
+      testSelected()
+      _.addClass("#todolink", "selected")
+      changePage("todo")
+    })
 
 
     function testSelected() {
-      var links = ["abLink", "browserLink", "settingsLink", "home", "downloadLink"]
+      var links = ["abLink", "browserLink", "settingsLink", "home", "downloadLink", "todolink"]
   
       links.forEach(link => {
         var e = document.getElementById(link)
