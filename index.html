@@ -1,10 +1,10 @@
 <!--
-  ______ _           _                   
- |  ____| |         | |                  
- | |__  | | ___  ___| |_ _ __ ___  _ __  
- |  __| | |/ _ \/ __| __| '__/ _ \| '_ \ 
- | |____| |  __/ (__| |_| | | (_) | | | |
- |______|_|\___|\___|\__|_|  \___/|_| |_|
+   _____                              
+  /  _  \_______  ____   ____   ____  
+ /  /_\  \_  __ \/ ___\ /  _ \ /    \ 
+/    |    \  | \/ /_/  >  <_> )   |  \
+\____|__  /__|  \___  / \____/|___|  /
+        \/     /_____/             \/ 
 -->
 
 <!DOCTYPE html>
@@ -13,8 +13,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Electron</title>
-  <link href="electron-full.png" rel="icon" id="favicon"/>
+  <title>Argon</title>
+  <link href="argon-full.png" rel="icon" id="favicon"/>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
   <script src="https://kit.fontawesome.com/e897e5d5dc.js" crossorigin="anonymous"></script>
@@ -24,8 +24,8 @@
 
   
     <div id="main" class="window">
-      <h1>Electron</h1>
-      <p>A student's best friend!</p>
+      <h1>Argon [Beta[</h1>
+      <p>A simple full functional OS</p>
     </div>
 
     <div id="aboutblank" class="window">
@@ -49,27 +49,31 @@
     <input id="faviconInput" type="text" placeholder="Tab Icon URL" ><button onclick="updateFavicon()"><i class="fa-solid fa-check"></i></button>
     </div>
 
-    <div id="download" class="window">
-      <h1>Download</h1>
-      <p>How to locally download Electron:</p>
-      <p>1. Click <a href="Electron.zip">here</a> to download the ZIP file</p>
-      <p>2. Right click the file once it's downloaded, and click Extract All or Unzip</p>
-      <p>3. Navigate to the folder it made called Electron, and double click the index.html file.</p><br>
-      <p>Done! Electron is now downloaded on your computer. If you want to open it again, just double click the index.html file again.</p>
-    </div>
-  
+   
     <div id="todo" class="window">
       <h1>Todolist</h1>
       broken :(
     </div>
+    
+    <div id="download" class="window">
+      <h1>Download</h1>
+      <p>How to locally download Argon:</p>
+      <p>1. Click <a href="Electron.zip">here</a> to download the ZIP file</p>
+      <p>2. Right click the file once it's downloaded, and click Extract All or Unzip</p>
+      <p>3. Navigate to the folder it made called Argon, and double click the index.html file.</p><br>
+      <p>Done! Argon is now downloaded on your computer. If you want to open it again, just double click the index.html file again.</p>
+    </div>
+  
+  
   
   <div id="navbar">
     <a class="navlink" id="home"><i class="fa-solid fa-home"></i></a>
     <a class="navlink" id="abLink"><i class="fa-solid fa-eye-slash"></i></a>
     <a class="navlink selected" id="browserLink"><i class="fa-solid fa-globe"></i></a>
     <a class="navlink" id="settingsLink"><i class="fa-solid fa-gear"></i></a>
-    <a class="navlink" id="downloadLink"><i class="fa-solid fa-download"></i></a>
     <a class="navlink" id="todolink"><i class="fa-solid fa-check"></i></a>
+    <a class="navlink" id="downloadLink"><i class="fa-solid fa-download"></i></a>
+    
     
     <div id="time">
       <p id="time-text">11:03</p>
